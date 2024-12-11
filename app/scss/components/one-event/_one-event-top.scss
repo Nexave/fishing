@@ -1,0 +1,128 @@
+.one-event-top{
+  padding-top: 20px;
+  padding-bottom: 15px;
+  &-inner{
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    gap: 60px;
+    @include laptop{
+      padding-left: 0;
+      padding-right: 0;
+      gap: 30px;
+    }
+    @include ipad{
+      flex-direction: column;
+
+    }
+  }
+  .block-title{
+    margin-bottom: 30px;
+    @include ipad{
+      margin-bottom: 0;
+    }
+  }
+  .event-description{
+    width: 100%;
+    &-item{
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--text-color-body);
+      padding-top: 30px;
+      padding-bottom: 15px;
+      align-items: flex-start;
+      gap: 60px;
+      text-align: right;
+      @include mobile{
+        gap: 20px;
+      }
+      .item-name{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--text-color-body);
+        white-space: nowrap;
+        text-align: left;
+        @include mobile{
+          font-size: 14px;
+          line-height: 20px;
+        }
+        @media (max-width: 360px) {
+            white-space: normal;
+        }
+      }
+      .item-description{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 20px;
+        max-width: 500px;
+        @include mobile{
+          font-size: 14px;
+          line-height: 20px;
+          gap: 8px;
+        }
+        a{
+          svg{
+            width: 14px;
+            height: auto;
+            margin-right: 4px;
+            path{
+              fill: var(--text-color-body);
+            }
+          }
+
+          color: var(--text-color-body);
+          transition: 0.4s ease;
+          &:hover{
+            color: var(--orange);
+          }
+        }
+      }
+    }
+  }
+  .right-block{
+    width: 100%;
+    max-width: 474px;
+    background: var(--background-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    @include ipad{
+      max-width: 100%;
+      padding: 30px 20px;
+    }
+
+    .item-title{
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 38px;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--text-color-body);
+      font-family: var(--font2);
+      margin-bottom: 60px;
+      max-width: 403px;
+      @include mobile{
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+    .item-subtitle{
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      color: var(--text-color-body);
+      margin-bottom: 60px;
+      max-width: 403px;
+      @include mobile{
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

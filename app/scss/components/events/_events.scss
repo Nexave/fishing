@@ -1,0 +1,90 @@
+.events{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include mobile{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .block-title{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  &-item{
+    padding: 17px 26px;
+    border: 1px solid var(--text-color-body);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    @include ipad{
+      flex-direction: column;
+      align-items: center;
+    }
+    @include mobile{
+      padding: 15px;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+    form{
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 247px;
+      @include ipad{
+        margin-right: auto;
+      }
+      @include mobile{
+        max-width: 100%;
+      }
+    }
+    &-date{
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-right: 47px;
+      white-space: nowrap;
+      width: 200px;
+      @include ipad{
+        margin-bottom: 30px;
+        margin-right: 0;
+        width: auto;
+      }
+    }
+    &-link{
+      font-size: 24px;
+      line-height: 27px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-color-body);
+      transition: 0.4s ease;
+      margin-right: 10px;
+      @include ipad{
+        margin-bottom: 30px;
+        margin-right: 0;
+        text-align: center;
+      }
+      @include mobile{
+        margin-bottom: 15px;
+      }
+      &:hover{
+        color: var(--orange);
+      }
+    }
+    .button{
+      margin-left: auto;
+      max-width: 247px;
+      width: 100%;
+      padding: 15px;
+      @include ipad{
+        margin-right: auto;
+      }
+      @include mobile{
+        max-width: 100%;
+      }
+    }
+  }
+}

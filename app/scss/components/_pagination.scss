@@ -1,0 +1,73 @@
+.pagination{
+  padding-bottom: 30px;
+  display: flex;
+  gap:10px;
+  align-items: center;
+  @include mobile{
+    padding-bottom: 15px;
+    gap:7px;
+
+  }
+  &-item{
+    color: var(--text-color-body);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    transition: 0.4s ease;
+    padding: 10px;
+    @include mobile{
+      padding: 7px;
+    }
+    &:hover,&.current-page{
+      color:var(--orange)
+    }
+    &.devider{
+      pointer-events: none;
+    }
+  }
+  .prev-page,.next-page{
+    width: 39px;
+    height: 39px;
+    background-color: var(--orange);
+    position: relative;
+    border-radius: 50%;
+    transition: 0.4s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    &:hover{
+      opacity: 0.7;
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      width: 14px;
+      height: 14px;
+      mask: url(../img/icons/arrow-down-icon.svg);
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      background-color: var(--text-color-body);
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      transform: translate(-50% , -50%);
+
+    }
+  }
+  .prev-page{
+    transform: rotate(90deg);
+    margin-right: 50px;
+    @include mobile{
+      margin-right: 15px;
+    }
+  }
+  .next-page{
+    transform: rotate(-90deg);
+    margin-left: 50px;
+    @include mobile{
+      margin-left: 15px;
+    }
+  }
+
+}

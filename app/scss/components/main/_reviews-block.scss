@@ -1,0 +1,113 @@
+.reviews-block{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include mobile{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  &-inner{
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding-top: 90px;
+    padding-bottom: 45px;
+    position: relative;
+    @include tablet{
+      padding: 63px 78px 82px 78px;
+    }
+    @include mobile{
+      padding: 15px 14px;
+    }
+
+  }
+  .reviews-slider-wrapper{
+    max-width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 64px;
+    padding-left: 64px;
+    position: relative;
+    @include tablet{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .prev-slide{
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    mask: url(../img/icons/arrow-down-icon.svg);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: #d3d3d3;
+    z-index: 2;
+    top:50%;
+    mask-size: contain;
+    left: 0;
+    transform: translateY(-50%) rotate(90deg);
+    cursor: pointer;
+    transition: 0.4s ease;
+    @include tablet{
+      display: none;
+    }
+    &:hover{
+      background-color: var(--orange);
+    }
+  }
+  .next-slide{
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    mask: url(../img/icons/arrow-down-icon.svg);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: #d3d3d3;
+    z-index: 2;
+    top:50%;
+    mask-size: contain;
+    right: 0;
+    transform: translateY(-50%) rotate(-90deg);
+    cursor: pointer;
+    transition: 0.4s ease;
+    @include tablet{
+      display: none;
+    }
+    &:hover{
+      background-color: var(--orange);
+    }
+  }
+  .reviews-slider{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .block-title{
+    text-align: center;
+    margin-bottom: 30px;
+    @include mobile{
+      margin-bottom: 15px;
+    }
+  }
+  .inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .text{
+    text-align: center;
+    color: var(--text-color-body);
+    margin-bottom: 30px;
+    @include mobile{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 15px;
+    }
+  }
+  .author{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    color: var(--orange);
+  }
+}

@@ -1,0 +1,46 @@
+.trophy{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include mobile{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  &-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 116px 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include tablet{
+      padding: 90px 20px;
+    }
+    @include mobile{
+      padding: 74px 38px;
+    }
+  }
+  .block-title{
+    margin-bottom: 30px;
+    color: var(--white);
+    text-align: center;
+    @include mobile{
+      margin-bottom: 15px;
+    }
+  }
+  &-description{
+    color: var(--white);
+    max-width: 918px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 30px;
+    @include mobile{
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 15px;
+    }
+  }
+}

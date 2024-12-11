@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Title</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+    <link rel="stylesheet" href="css/main.min.css">
+
+
+</head>
+
+<body>
+@@include('../blocks/header.html')
+<main>
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item"><a href="">Головна </a></li>
+                <li class="breadcrumbs-item"><a href=""> Власний кабінет </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="cabinet-page">
+        <div class="container">
+            <div class="cabinet-page-inner">
+               <div class="own-cabinet">
+                   <div class="block-title">
+                       Власний кабінет
+                   </div>
+                   <div class="own-cabinet-items">
+                       <div class="item">
+                           <a href="">
+                               <div class="img-wrapper">
+                                   <img src="img/icons/tournament-icon.svg" alt="">
+                               </div>
+                               <span class="item-name">Турніри</span>
+                           </a>
+
+
+                       </div>
+                       <div class="item">
+                           <a href="">
+                               <div class="img-wrapper">
+                                   <img src="img/icons/lock-icon.svg" alt="">
+                               </div>
+                               <span class="item-name">Змінити пароль</span>
+                           </a>
+
+
+                       </div>
+                       <div class="item">
+                           <a href="">
+                               <div class="img-wrapper">
+                                   <img src="img/icons/pen-icon.svg" alt="">
+                               </div>
+                               <span class="item-name">Редктировать профіль</span>
+                           </a>
+
+
+                       </div>
+                   </div>
+                   <div class="button-wrapper">
+                       <a href="" class="button button-main button-image"><img src="img/icons/logout-icon.svg" alt="">Вихід</a>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</main>
+@@include('../blocks/footer.html')
+</body>
+
+</html>

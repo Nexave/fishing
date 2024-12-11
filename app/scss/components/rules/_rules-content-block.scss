@@ -1,0 +1,95 @@
+.rules-content {
+  padding-left: 80px;
+  padding-right: 80px;
+  @include ipad{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  color: var(--text-color-body);
+  ul, ol{
+    padding-left: 20px;
+  }
+  img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  h2{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    text-transform: uppercase;
+    font-family: var(--font2);
+    color: var(--text-color-body);
+    margin-bottom: 15px;
+    @include mobile{
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+  p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-color-body);
+    margin-bottom: 15px;
+    @include mobile{
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+  }
+  span,strong{
+    font-weight: 400;
+    color: var(--orange)
+  }
+
+
+  &-block {
+    padding-top: 15px;
+    padding-bottom: 30px;
+    .bottom-content{
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-left: 80px;
+      padding-right: 80px;
+      color: var(--text-color-body);
+      align-items: center;
+      @include ipad{
+        padding-left: 0;
+        padding-right: 0;
+      }
+      @include mobile{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+    span{
+      color: var(--orange);
+    }
+    .phone-item{
+      display: flex;
+      gap:5px;
+      align-items: center;
+      svg{
+        width: 14px;
+        height: auto;
+        path{
+          fill: var(--text-color-body);
+        }
+      }
+      a{
+        transition: 0.4s ease;
+        color: var(--text-color-body);
+        &:hover{
+          color: var(--orange);
+        }
+      }
+    }
+  }
+}

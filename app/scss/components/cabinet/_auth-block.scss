@@ -1,0 +1,79 @@
+.auth-block{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  &-inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .auth-form{
+    width: 100%;
+    max-width: 520px;
+  }
+  .block-title{
+    margin-bottom: 30px;
+    @include mobile{
+      margin-bottom: 15px;
+    }
+  }
+  .input-wrapper{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .input{
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--text-color-body);
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 18px;
+    color: var(--text-color-body);
+    padding: 15px;
+  }
+  .button-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    @include mobile{
+      margin-bottom: 15px;
+    }
+    .button{
+      width: 100%;
+    }
+  }
+  .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-color-body);
+  }
+  .login-link{
+    color: var(--text-color-body);
+    transition: 0.4s ease;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 18px;
+
+    &:hover{
+      color: var(--orange);
+    }
+  }
+  .register-link{
+    font-size: 16px;
+    line-height: 18px;
+
+    color: var(--orange);
+    transition: 0.4s ease;
+    text-decoration: none;
+    &:hover{
+      color: var(--text-color-body);
+    }
+  }
+}

@@ -1,0 +1,157 @@
+.image-slider-block{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  @include mobile{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .title-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+    &.justify-center{
+      justify-content: center;
+    }
+  }
+  .show-link{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: var(--text-color-body);
+    text-transform: uppercase;
+    transition: 0.4s ease;
+    &:hover{
+      color: var(--orange);
+    }
+  }
+  .image-slider{
+    width: 100vw;
+
+    &-wrapper{
+      position: relative;
+    }
+    &.square-slides{
+      .swiper-slide{
+        aspect-ratio: 1/1;
+        width: 371px;
+        height: 397px;
+        @include mobile{
+          width: 259px;
+          height: 277px;
+        }
+      }
+    }
+  }
+  .prev-slide{
+    position: absolute;
+    width: 84px;
+    height: 84px;
+    background-color: var(--orange);
+    top:50%;
+    z-index: 2;
+    border-radius: 50%;
+    transform: translateY(-50%) translateX(-50%) rotate(90deg);
+    cursor: pointer;
+    transition: 0.4s ease;
+    opacity: 0.7;
+    &.swiper-button-lock{
+      display: block;
+      @include mobile{
+        display: none;
+      }
+    }
+    @include mobile{
+      display: none;
+    }
+    &:hover{
+      opacity: 1;
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      width: 33px;
+      height: 28px;
+      mask: url("../img/icons/arrow-down-icon.svg");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--white);
+      left: 50%;
+      top:30%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .next-slide{
+    position: absolute;
+    width: 84px;
+    height: 84px;
+    background-color: var(--orange);
+    top:50%;
+    right: 0;
+    z-index: 2;
+    border-radius: 50%;
+    transform: translateY(-50%) translateX(50%) rotate(-90deg);
+    cursor: pointer;
+    transition: 0.4s ease;
+    opacity: 0.7;
+    &.swiper-button-lock{
+      display: block;
+      @include mobile{
+        display: none;
+      }
+    }
+    @include mobile{
+      display: none;
+    }
+    &:hover{
+      opacity:1;
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      width: 33px;
+      height: 28px;
+      mask: url("../img/icons/arrow-down-icon.svg");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--white);
+      left: 50%;
+      top:30%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+
+    }
+  }
+  .swiper-slide{
+    max-width: 579px;
+    aspect-ratio: 1 / 0.55;
+    @include laptop{
+      max-width: 450px;
+    }
+    @include tablet{
+      max-width: 400px;
+    }
+    @include mobile{
+      max-width: 343px;
+    }
+    .inner{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 100%;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

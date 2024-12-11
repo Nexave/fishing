@@ -1,0 +1,37 @@
+.breadcrumbs{
+  display: flex;
+  flex-wrap: wrap;
+  &-wrapper{
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+  &-item{
+    margin-right: 10px;
+    &:after{
+      content: '-';
+      color: var(--text-color-body);
+      margin-left: 5px;
+    }
+    a{
+      color: var(--orange);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-decoration: none;
+      transition: 0.4s ease;
+      &:hover{
+        color: var(--text-color-body);
+      }
+    }
+    &:last-of-type{
+      margin-right: 0;
+      &:after{
+        display: none;
+      }
+      a{
+        color: var(--text-color-body);
+        pointer-events: none;
+      }
+    }
+  }
+}

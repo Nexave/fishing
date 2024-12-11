@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Title</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+    <link rel="stylesheet" href="css/main.min.css">
+
+
+</head>
+
+<body>
+@@include('../blocks/header.html')
+<main>
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item"><a href="">Головна </a></li>
+                <li class="breadcrumbs-item"><a href="">Події </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="slider-block">
+        <div class="container">
+            <h1 class="block-title">Події</h1>
+            <div class="slider-block-inner">
+                <div class="main-slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="inner">
+                                <img src="img/contact/contact-top.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="inner">
+                                <img src="img/contact/contact-top.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="inner">
+                                <img src="img/contact/contact-top.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="prev-slide"></div>
+                    <div class="slider-pagination"></div>
+                    <div class="next-slide"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <section class="event-calendar">
+        <div class="container">
+            <div class="event-calendar-inner">
+                <div class="calendar-top">
+                    <div class="prev-month"></div>
+                    <div class="next-month"></div>
+                    <span class="navbar--range"></span>
+
+                </div>
+                <div id="calendar" class="calendar"></div>
+            </div>
+
+        </div>
+    </section>
+    <script src="js/tui-calendar.min.js">
+    </script>
+    <script>
+        let calendar;
+
+        function initCalendar() {
+            let calendarBlock = document.querySelector('.calendar')
+            if (calendarBlock) {
+                calendar = new tui.Calendar('#calendar', {
+                    defaultView: "month",
+                    useCreationPopup: false,
+                    useDetailPopup: false,
+                    isReadOnly: true,
+                });
+                calendar.on({
+                    'selectDateTime': function (e) {
+                        console.log('beforeCreateSchedule', e);
+                        // open a creation popup
+
+                        // If you dont' want to show any popup, just use `e.guide.clearGuideElement()`
+
+                        // then close guide element(blue box from dragging or clicking days)
+                        calendar.clearGridSelections()
+                        e.guide.clearGuideElement();
+                    },
+                });
+                let nextMonth = document.querySelector('.next-month')
+                nextMonth.addEventListener('click', function () {
+                    calendar.next()
+                    setRenderRangeText();
+                })
+
+
+                let prevMonth = document.querySelector('.prev-month')
+                prevMonth.addEventListener('click', function () {
+                    calendar.prev()
+                    setRenderRangeText();
+                })
+
+            }
+        }
+
+        initCalendar()
+
+        function setCalendarEvents(array) {
+            calendar.createEvents(array)
+
+        }
+
+
+        let events = [
+            {
+                id: '1',
+                title: 'timed event',
+                start: '2023-05-05T10:00:00',
+                end: '2023-05-11T11:00:00',
+                location: 'Meeting Room A',
+                attendees: ["some additional information"],
+
+                isReadOnly: true,
+                color: '#fff',
+                backgroundColor: '#ccc',
+                customStyle: {
+                    fontStyle: 'italic',
+                    fontSize: '15px',
+                },
+
+                // borderColor: '#a73eaf' // '#000' of cal1 is applied because it is commented out.
+            },
+            // This event belongs to cal2, but defaults to cal2 because no color is specified.
+            {
+                id: '2',
+                title: 'Event 2',
+                isAllDay: true,
+                start: '2023-05-14T10:00:00',
+                end: '2023-05-18T11:00:00',
+                backgroundColor: '#3c056d',
+                color: '#fff',
+                isReadOnly: true,
+            },
+        ]
+        setCalendarEvents(events)
+        const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+        function setRenderRangeText(monthArr) {
+            var renderRange = document.querySelector('.navbar--range')
+            var options = calendar.getOptions();
+            var viewName = calendar.getViewName();
+            var html = [];
+            if (viewName === 'day') {
+                html.push(moment(cal.getDate().getTime()).format('MMM YYYY DD'));
+            } else if (viewName === 'month' &&
+                (!options.month.visibleWeeksCount || options.month.visibleWeeksCount > 4)) {
+                let monthText = months[calendar.getDate().getMonth()] + " " + calendar.getDate().getFullYear()
+                html.push(monthText);
+                console.log()
+            } else {
+                html.push(moment(calendar.getDateRangeStart().getTime()).format('MMM YYYY DD'));
+                html.push(' ~ ');
+                html.push(moment(calendar.getDateRangeEnd().getTime()).format(' MMM DD'));
+            }
+            renderRange.innerHTML = html.join('');
+        }
+        setRenderRangeText(months)
+        calendar.setOptions({
+            timezone: {
+                zones: [
+                    {
+                        timezoneName: 'Europe/Kiev',
+                    },
+                ],
+            },
+
+            month: {
+                isAlways6Weeks: true,
+                startDayOfWeek: 1,
+                dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+            },
+        });
+    </script>
+    <section class="events">
+        <div class="container">
+            <div class="events-inner">
+                <h2 class="block-title">Список заходів спортивної водойми Орлеан</h2>
+                <div class="events-list">
+                    <div class="events-item">
+                        <div class="events-item-date">30.04.23 - 05.05.23</div>
+                        <a href="" class="events-item-link">Кубок PIRANHAS BAITS 2023</a>
+                        <div class="button button-background">Вже зареєстровані</div>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">28.05.23 - 02.06.23</div>
+                        <a href="" class="events-item-link">Кубок «SCARP BAITS»</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">12.06.23 - 16.06.23</div>
+                        <a href="" class="events-item-link">Турнір «Кубок Перемоги» 2023</a>
+                        <form action="" >
+                            <button  class="button button-main">РеЄстрація на турнір</button>
+                        </form>
+
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">26.06.23 - 30.06.23</div>
+                        <a href="" class="events-item-link">«На трьох» 2023</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">09.07.23 - 14.07.23</div>
+                        <a href="" class="events-item-link">Турнір «Monster Carp» 2023</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">30.04.23 - 05.05.23</div>
+                        <a href="" class="events-item-link">Лічка 2023</a>
+                        <a href="" class="button button-transparent">Результатитурніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">24.07.23 - 28.07.23</div>
+                        <a href="" class="events-item-link">Кубок «SCARP BAITS»</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">07.08.2023 - 05.05.23</div>
+                        <a  href="" class="events-item-link">Турнір «Кубок Перемоги-2» 2023</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">20.08.23 - 27.08.23</div>
+                        <a href="" class="events-item-link">Марафон «Monster Carp» 2023</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">30.04.23 - 05.05.23</div>
+                        <a href="" class="events-item-link">VIP Лічка 2023</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">17.09.23 - 22.09.23</div>
+                        <a href="" class="events-item-link">Кубок «SMILE FISH» 2023 р</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                    <div class="events-item">
+                        <div class="events-item-date">01.10.23 - 06.10.23</div>
+                        <a href="" class="events-item-link">Кубок Чемпіонів 2023</a>
+                        <a href="" class="button button-transparent">Результати турніру</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+@@include('../blocks/footer.html')
+
+</body>
+
+</html>

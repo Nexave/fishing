@@ -1,0 +1,5 @@
+@import "_mixins/font-face";
+@include font-face("Comfortaa", "../fonts/ComfortaaRegular/Comfortaa-Regular", 400);
+@include font-face("Comfortaa", "../fonts/ComfortaaMedium/Comfortaa-Medium", 500);
+@include font-face("Comfortaa", "../fonts/ComfortaaBold/Comfortaa-Bold", 700);
+@include font-face("Vipnagorgialla", "../fonts/Vipnagorgialla/VipnagorgiallaRg-Regular", 400);

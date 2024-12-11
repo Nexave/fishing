@@ -1,0 +1,82 @@
+.map-block{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include mobile{
+    padding-bottom: 15px;
+  }
+  .block-title{
+    margin-bottom: 30px;
+    @include mobile{
+      margin-bottom: 15px;
+    }
+  }
+  .f-panzoom{
+    aspect-ratio: 1 / 0.52;
+    background: var(--bg-body);
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  .buttons-wrapper{
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .sector-item{
+    cursor: pointer;
+  }
+  .zoom-button{
+    background: var(--white);
+    cursor: pointer;
+    width: 47px;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .description{
+    color: var(--text-color-body);
+    margin-bottom: 30px;
+    @include mobile{
+      margin-bottom: 15px;
+    }
+    span{
+      color: var(--orange);
+    }
+  }
+  .map{
+    margin-bottom: 30px;
+  }
+  .map-icons-description{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include ipad{
+      justify-content: flex-start;
+    }
+    @include mobile{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    .description-item{
+      display: flex;
+      align-items: center;
+      color: var(--text-color-body);
+      img{
+        width: 25px;
+        height: auto;
+        flex-shrink: 0;
+        margin-right: 4px;
+      }
+    }
+  }
+}

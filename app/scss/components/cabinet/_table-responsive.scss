@@ -1,0 +1,104 @@
+.table-responsive{
+  table{
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 22px;
+
+    th{
+      color: var(--orange);
+      text-transform: uppercase;
+      &:first-child{
+        border-top-left-radius: 10px;
+
+      }
+      &:last-child{
+        border-top-right-radius: 10px;
+
+      }
+
+    }
+    thead{
+      width: 100%;
+    }
+    tbody{
+      width: 100%;
+    }
+
+    td, th{
+      border: 1px solid var(--text-color-body);
+      padding-top: 19px;
+      padding-bottom: 19px;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 13px;
+      @include mobile{
+        padding-left: 50%;
+      }
+
+
+    }
+    td{
+      color: var(--text-color-body);
+      position: relative;
+      &:after{
+        @include mobile{
+          position: absolute;
+          content: attr(data-name);
+          width: 50%;
+          height: 100%;
+          border-right: 1px solid var(--text-color-body);
+          left: 0;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 10px;
+          color: var(--orange);
+          text-transform: uppercase;
+          text-align: left;
+        }
+      }
+    }
+    thead{
+      @include mobile{
+        display: none;
+
+      }
+
+
+    }
+    tbody{
+      tr{
+        @include mobile{
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+        }
+
+      }
+      tr:last-child{
+        @include mobile{
+          margin-bottom: 0;
+        }
+        td:first-child{
+          border-bottom-left-radius: 10px;
+          @include mobile{
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+          }
+        }
+        td:last-child{
+          border-bottom-right-radius: 10px;
+          @include mobile{
+            border-bottom-left-radius: 10px;
+          }
+        }
+      }
+
+    }
+  }
+}
